@@ -68,7 +68,7 @@ These are hosts, with detailed information about docker installation and resourc
 require 'rancher/api'
 
 Rancher::Api.configure do |config|
-  config.url = 'http://127.0.0.1:8080/v1/'
+  config.url = 'http://127.0.0.1:8080/v2-beta/'
   config.access_key = '8604A1FC8C108BAFB1E3'
   config.secret_key = '4BhuyyyAaaaaBbbbi7yaZzzAaa3y13pC6D7e569'
 end
@@ -184,6 +184,9 @@ puts container.execute(['bundle', 'exec', 'rake', 'db:create', 'db:migrate']).re
 ```
 
 ## Development
+
+### Tests
+`bundle exec rake spec`
 
 ### Console
 To load environment with pry run `pry -I lib -r rancher/api`
