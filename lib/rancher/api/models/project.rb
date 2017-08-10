@@ -9,13 +9,6 @@ module Rancher
       has_many :hosts
       has_many :environments
       has_many :services
-
-      class << self
-        def find_by_name(name:)
-          # filters not working for name yet, so using select
-          all.reject { |e| e.state.eql?('purged') }.select { |e| e.name.eql?(name) }
-        end
-      end
     end
   end
 end

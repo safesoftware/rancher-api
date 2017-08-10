@@ -15,7 +15,7 @@ module Rancher
         #
 
         # Case when resources are nested inside another 'data' key in response
-        # require sepcial handling like the one below
+        # require special handling like the one below
         #
         # {
         #   "type": "collection",
