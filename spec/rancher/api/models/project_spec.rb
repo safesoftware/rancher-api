@@ -40,15 +40,15 @@ describe Rancher::Api::Project do
       it { expect(machines.first).to be_instance_of(Rancher::Api::Machine) }
     end
 
-    context '#environments' do
-      let(:environments) do
-        VCR.use_cassette('projects/environments') do
-          Rancher::Api::Environment.all.to_a
+    context '#stacks' do
+      let(:stacks) do
+        VCR.use_cassette('projects/stacks') do
+          Rancher::Api::Stack.all.to_a
         end
       end
 
-      it { expect(environments.size).to eq(2) } # hub and quotes
-      it { expect(environments.first).to be_instance_of(Rancher::Api::Environment) }
+      it { expect(stacks.size).to eq(2) } # hub and quotes
+      it { expect(stacks.first).to be_instance_of(Rancher::Api::Stack) }
     end
 
     context '#services' do

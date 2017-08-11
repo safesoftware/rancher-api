@@ -1,20 +1,20 @@
 require 'spec_helper'
 
-describe Rancher::Api::Environment do
+describe Rancher::Api::Stack do
   context '#all' do
     let(:index) do
-      VCR.use_cassette('environments/index') do
+      VCR.use_cassette('stacks/index') do
         subject.class.all.to_a.sort_by(&:name)
       end
     end
 
     it { expect(index.size).to eq(2) }
-    it { expect(index.first).to be_instance_of(Rancher::Api::Environment) }
+    it { expect(index.first).to be_instance_of(Rancher::Api::Stack) }
   end
 
   let(:env) do
-    VCR.use_cassette('environments/1e7') do
-      Rancher::Api::Environment.find('1e7')
+    VCR.use_cassette('stacks/1e7') do
+      Rancher::Api::Stack.find('1e7')
     end
   end
 
@@ -28,7 +28,7 @@ describe Rancher::Api::Environment do
   context 'relationships' do
     context '#services' do
       let(:services) do
-        VCR.use_cassette('environments/services') do
+        VCR.use_cassette('stacks/services') do
           env.services.to_a
         end
       end

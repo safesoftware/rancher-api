@@ -24,6 +24,24 @@ module Rancher
           handle_response(self.class.post(url, data))
         end
 
+        def delete(action, data: {})
+          url = actions[action.to_s]
+          raise RancherActionNotAvailableError, "Available actions: '#{actions.inspect}'" if url.blank?
+          handle_response(self.class.delete(url, data))
+        end
+
+        def post_link(link, data: {})
+          url = links[link.to_s]
+          raise RancherActionNotAvailableError, "Available actions: '#{links.inspect}'" if url.blank?
+          handle_response(self.class.post(url, data))
+        end
+
+        def get_link(link, data: {})
+          url = links[link.to_s]
+          raise RancherActionNotAvailableError, "Available actions: '#{links.inspect}'" if url.blank?
+          handle_response(self.class.get(url, data))
+        end
+
         def handle_response(response)
           case response
           when Her::Collection

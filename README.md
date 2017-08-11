@@ -48,15 +48,15 @@ Configure Rancher::Api first by providing url, access and secret keys:
 ### Classes
 
 - **Project**
-Top level object that represents "Environment" in Rancher UI
+Top level object that represents "Stack" in Rancher UI
 - **Service**
 Service (combines containers from the same image)
 - **Machine**
 Physical docker hosts
 - **Instance**
 represents containers that were ever installed via Rancher. Better to query containers as nested resource, cuz there can be thousands of containers that were running before and still available to query via API. Removed containers are marked as 'removed' respectively
-- **Environment**
-In Rancher UI these are known as **Stack**, though in API they are **environments**. We're sticking to API resource name
+- **Stack**
+A stack is a group of services. Stacks can be used to group together services that together implement an application.
 - **Host**
 These are hosts, with detailed information about docker installation and resources
 

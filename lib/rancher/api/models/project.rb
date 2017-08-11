@@ -1,4 +1,4 @@
-# These are 'Environments' in the UI
+# These are 'Stacks' in the UI
 module Rancher
   module Api
     class Project
@@ -7,7 +7,7 @@ module Rancher
 
       has_many :machines
       has_many :hosts
-      has_many :environments
+      has_many :stacks
       has_many :services
     end
   end
