@@ -28,11 +28,11 @@ module Rancher
           handle_response(self.class.delete(self_url))
         end
 
-        def post_link(link)
-          url = links[link.to_s]
-          raise RancherActionNotAvailableError, "Available actions: '#{links.inspect}'" if url.blank?
-          handle_response(self.class.post(url))
-        end
+        # def post_link(link)
+        #   url = links[link.to_s]
+        #   raise RancherActionNotAvailableError, "Available actions: '#{links.inspect}'" if url.blank?
+        #   handle_response(self.class.post(url))
+        # end
 
         def handle_response(response)
           case response

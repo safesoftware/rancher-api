@@ -59,6 +59,8 @@ represents containers that were ever installed via Rancher. Better to query cont
 A stack is a group of services. Stacks can be used to group together services that together implement an application.
 - **Host**
 These are hosts, with detailed information about docker installation and resources
+- **Registrationtoken**
+Select the registration token and/or command for adding custom hosts to a given environment
 
 ### Setup
 
@@ -69,8 +71,8 @@ require 'rancher/api'
 
 Rancher::Api.configure do |config|
   config.url = 'http://127.0.0.1:8080/v2-beta/'
-  config.access_key = '8604A1FC8C108BAFB1E3'
-  config.secret_key = '4BhuyyyAaaaaBbbbi7yaZzzAaa3y13pC6D7e569'
+  config.access_key = '123ABC'
+  config.secret_key = 'aBC123'
 end
 ```
 
