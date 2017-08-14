@@ -4,9 +4,7 @@ module Rancher
       include Her::Model
       include Helpers::Model
 
-      belongs_to :machine
-      has_many :instances
-      has_many :ipaddresses
+      belongs_to :project
     end
   end
 end

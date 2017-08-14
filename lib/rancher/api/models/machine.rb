@@ -15,7 +15,7 @@ module Rancher
                  :removed, :softlayerConfig, :virtualboxConfig,
                  :vmwarevcloudairConfig, :vmwarevsphereConfig
 
-      has_many :hosts
+      #has_many :hosts
 
       class << self
         def transitioning

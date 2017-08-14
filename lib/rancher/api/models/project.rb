@@ -9,7 +9,7 @@ module Rancher
       has_many :hosts
       has_many :stacks
       has_many :services
-      has_many :registration_token, path: '/registrationtokens', data_key: 'registrationtokens'
+      has_many :registration_tokens, path: '/registrationtokens', data_key: 'registrationtokens'
     end
   end
 end
