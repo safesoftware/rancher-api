@@ -9,6 +9,7 @@ module Rancher
       has_many :hosts
       has_many :stacks
       has_many :services
+      has_many :registrationtokens
     end
   end
 end

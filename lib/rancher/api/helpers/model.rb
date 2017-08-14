@@ -24,22 +24,14 @@ module Rancher
           handle_response(self.class.post(url, data))
         end
 
-        def delete(action, data: {})
-          url = actions[action.to_s]
-          raise RancherActionNotAvailableError, "Available actions: '#{actions.inspect}'" if url.blank?
-          handle_response(self.class.delete(url, data))
+        def delete
+          handle_response(self.class.delete(self_url))
         end
 
-        def post_link(link, data: {})
+        def post_link(link)
           url = links[link.to_s]
           raise RancherActionNotAvailableError, "Available actions: '#{links.inspect}'" if url.blank?
-          handle_response(self.class.post(url, data))
-        end
-
-        def get_link(link, data: {})
-          url = links[link.to_s]
-          raise RancherActionNotAvailableError, "Available actions: '#{links.inspect}'" if url.blank?
-          handle_response(self.class.get(url, data))
+          handle_response(self.class.post(url))
         end
 
         def handle_response(response)
