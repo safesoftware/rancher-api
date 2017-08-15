@@ -11,6 +11,7 @@ module Rancher
       has_many :services
       has_many :registration_tokens, path: '/registrationtokens', data_key: 'registrationtokens'
       has_many :settings
+      has_many :schemas
     end
   end
 end
