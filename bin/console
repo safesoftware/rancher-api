@@ -7,9 +7,9 @@ require 'rancher/api'
 # with your gem easier. You can also use a different console, if you like.
 
 Rancher::Api.configure do |config|
-  config.url = 'https://keiko.fmecloud.fme.co/v2-beta'
-  config.access_key = '8125F65ECD85313BF3BF'
-  config.secret_key = 'aW77NPVMmBwrVKtLtni7bE68XM9Dv6PfNzXabZsa'
+  config.url = RANCHER_URL
+  config.access_key = RANCHER_ACCESS_KEY
+  config.secret_key = RANCHER_SECRET_KEY
   config.verbose = true
 end
 
