@@ -1,6 +1,6 @@
 module Rancher
   module Api
-    class Registrycredential
+    class Setting
       include Her::Model
       include Helpers::Model
 

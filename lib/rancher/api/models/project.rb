@@ -1,4 +1,4 @@
-# These are 'Environments' in the UI
+# These are 'Stacks' in the UI
 module Rancher
   module Api
     class Project
@@ -7,15 +7,12 @@ module Rancher
 
       has_many :machines
       has_many :hosts
-      has_many :environments
+      has_many :stacks
       has_many :services
-
-      class << self
-        def find_by_name(name:)
-          # filters not working for name yet, so using select
-          all.reject { |e| e.state.eql?('purged') }.select { |e| e.name.eql?(name) }
-        end
-      end
+      has_many :registration_tokens, path: '/registrationtokens', data_key: 'registrationtokens'
+      has_many :settings
+      has_many :schemas
+      has_many :registry, path: '/registries', data_key: 'registries'
     end
   end
 end

@@ -1,12 +1,12 @@
-# These are 'Stacks' in the UI
 module Rancher
   module Api
-    class Environment
+    class Registry
       include Her::Model
       include Helpers::Model
 
+      collection_path '/v2-beta/projects/:project_id/registries'
+
       belongs_to :project
-      has_many :services
     end
   end
 end

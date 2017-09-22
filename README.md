@@ -48,17 +48,19 @@ Configure Rancher::Api first by providing url, access and secret keys:
 ### Classes
 
 - **Project**
-Top level object that represents "Environment" in Rancher UI
+Top level object that represents "Stack" in Rancher UI
 - **Service**
 Service (combines containers from the same image)
 - **Machine**
 Physical docker hosts
 - **Instance**
 represents containers that were ever installed via Rancher. Better to query containers as nested resource, cuz there can be thousands of containers that were running before and still available to query via API. Removed containers are marked as 'removed' respectively
-- **Environment**
-In Rancher UI these are known as **Stack**, though in API they are **environments**. We're sticking to API resource name
+- **Stack**
+A stack is a group of services. Stacks can be used to group together services that together implement an application.
 - **Host**
 These are hosts, with detailed information about docker installation and resources
+- **Registrationtoken**
+Select the registration token and/or command for adding custom hosts to a given environment
 
 ### Setup
 
@@ -68,9 +70,9 @@ These are hosts, with detailed information about docker installation and resourc
 require 'rancher/api'
 
 Rancher::Api.configure do |config|
-  config.url = 'http://127.0.0.1:8080/v1/'
-  config.access_key = '8604A1FC8C108BAFB1E3'
-  config.secret_key = '4BhuyyyAaaaaBbbbi7yaZzzAaa3y13pC6D7e569'
+  config.url = 'http://127.0.0.1:8080/v2-beta/'
+  config.access_key = '123ABC'
+  config.secret_key = 'aBC123'
 end
 ```
 
@@ -184,6 +186,9 @@ puts container.execute(['bundle', 'exec', 'rake', 'db:create', 'db:migrate']).re
 ```
 
 ## Development
+
+### Tests
+`bundle exec rake spec`
 
 ### Console
 To load environment with pry run `pry -I lib -r rancher/api`

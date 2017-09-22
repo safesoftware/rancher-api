@@ -1,10 +1,10 @@
 module Rancher
   module Api
-    class Ipaddress
+    class Schema
       include Her::Model
       include Helpers::Model
 
-      attributes :name, :state, :address
+      belongs_to :project
     end
   end
 end

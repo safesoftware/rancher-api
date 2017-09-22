@@ -10,6 +10,7 @@ Rancher::Api.configure do |config|
   config.url = RANCHER_URL
   config.access_key = RANCHER_ACCESS_KEY
   config.secret_key = RANCHER_SECRET_KEY
+  config.verbose = true
 end
 
 # (If you use this, don't forget to add pry to your Gemfile!)
