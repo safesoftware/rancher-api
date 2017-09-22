@@ -1,8 +1,10 @@
 module Rancher
   module Api
-    class Registries
-      include ::Her::Model
+    class Registry
+      include Her::Model
       include Helpers::Model
+
+      collection_path '/v2-beta/projects/:project_id/registries'
 
       belongs_to :project
     end
